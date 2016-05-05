@@ -5,27 +5,27 @@
 [![PayPal Donate Button](https://img.shields.io/badge/donate-paypal-orange.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=DDE8H72QKJHRJ&item_name=node%2dsteam%2dtradeoffers&currency_code=USD "Donate to this project via PayPal")
 [![Steam Items Donate Button](https://img.shields.io/badge/donate-steam%20items-yellowgreen.svg)](https://steamcommunity.com/tradeoffer/new/?partner=89647317&token=vmYJwN-y "Donate Steam Items")
 
-`steam-tradeoffers` is a library for Node.js written in JavaScript. It allows you to automate Steam trading using trade offers. It was designed with [node-steam](https://github.com/seishun/node-steam) in mind, but does not depend on it directly. Some of the methods of the library are wrappers for Steam Web API.
+`steam-tradeoffers` é uma biblioteca para Node.js escrita em JavaScript. Ela permite vc automatizar as trocas da Steam usando trade offers. Ela foi desenvolvida com [node-steam](https://github.com/seishun/node-steam) em mente, mas não depende diretamente dele. Alguns dos metodos da biblioteca são compilados para Steam Web API.
 
-__Please read the [FAQ](https://github.com/Alex7Kom/node-steam-tradeoffers/wiki/FAQ)__ first if you have any questions.
+__Por favor leia o [FAQ](https://github.com/Alex7Kom/node-steam-tradeoffers/wiki/FAQ)__ primeiro caso vc tenha alguma duvida.
 
-If your question is not answered here, please ask it in [https://github.com/steam-forward/node-steam-forum](https://github.com/steam-forward/node-steam-forum), __please do not open an issue here__. Issues are only for bugs and feature requests.
+Se sua questao nao esta respondida ali, por favor pergunte-a em [https://github.com/steam-forward/node-steam-forum](https://github.com/steam-forward/node-steam-forum), __please do not open an issue here__. Issues are only for bugs and feature requests. <- Bla bla
 
-# Installation
+# Instalação
 
 ```
 npm install steam-tradeoffers
 ```
 
-# Usage
-Instantiate a SteamTradeOffers object...
+# Uso
+Instancie um objeto SteamTradeOffers...
 
 ```js
 var SteamTradeOffers = require('steam-tradeoffers');
 var offers = new SteamTradeOffers();
 ```
 
-...then setup session and WebAPI key:
+...depois setup session and WebAPI key:
 
 ```js
 offers.setup({
@@ -35,39 +35,39 @@ offers.setup({
 });
 ```
 
-You can obtain session information with [node-steam](https://github.com/seishun/node-steam) and its plugin [steam-weblogon](https://github.com/Alex7Kom/node-steam-weblogon).
+Vc pode obter informações de seção com [node-steam](https://github.com/seishun/node-steam) e seu plugin [steam-weblogon](https://github.com/Alex7Kom/node-steam-weblogon).
 
 # Demo
 
-A [demo bot](https://steamcommunity.com/profiles/76561198049913045/) exists that also serves as a donation bot.
+Um [demo bot](https://steamcommunity.com/profiles/76561198049913045/) existe e tambem serve como bot de doação.
 
-[Source code](https://gist.github.com/Alex7Kom/d764ef2925060c4e7c27) (based on the `storehouse.js` example).
+[Source code](https://gist.github.com/Alex7Kom/d764ef2925060c4e7c27) (baseado no exemplo `storehouse.js`).
 
-# Examples
+# Exemplos
 
-You'll need to install [node-steam](https://github.com/seishun/node-steam), [steam-weblogon](https://github.com/Alex7Kom/node-steam-weblogon), and [steam-web-api-key](https://github.com/Alex7Kom/node-steam-web-api-key) in order to run the examples.
+Vc vai precisar instalar [node-steam](https://github.com/seishun/node-steam), [steam-weblogon](https://github.com/Alex7Kom/node-steam-weblogon), e [steam-web-api-key](https://github.com/Alex7Kom/node-steam-web-api-key) para poder rodar os exemplos.
 
-The `storehouse.js` file contains an example of handling incoming trade offers.
+O arquivo `storehouse.js` contem um exemplo de manusear ofertas de troca recebidas.
 
-The `offerbot.js` is an example of making a trade offer.
+O `offerbot.js` é um exemplo de fazer uma oferta de troca.
 
-On first launch both of the examples will 'crash'. Check your email for Steam Guard code and edit an example file to add it, then run it again.
+Na primeira tentativa ambos exemplos irao dar 'crash'. Confira seu email para o codigo Steam Guard e edite um arquivo do exemplo para adiciona-lo, entao rode de novo.
 
-Please read the [FAQ](https://github.com/Alex7Kom/node-steam-tradeoffers/wiki/FAQ) before creating an issue about examples.
+Por favor leia o [FAQ](https://github.com/Alex7Kom/node-steam-tradeoffers/wiki/FAQ) antes de criar um topico de reclamação dos exemp.
 
-# Methods
+# Metodos
 
-`options` param of all methods is just an object. All callbacks supplied with `Error` as the first argument or `null` if no errors occured.
+Parametro `options` de todos metodos é apenas um objeto. Todas respostas(callbacks) contendo `Error` como primeiro argumento ou `null` se não ocorrerem erros.
 
 ## setup(options)
 
-As noted above, this method is used to setup a web session. If you want to operate with trade offers right after startup, do it after calling this method.
+Como observado acima, esse metodo é usado para instalar a web session. Se vc quer operar com ofertas de troca logo apos a inicializacao, faça isso após chamar esse metodo.
 
-Options:
+Opçoes:
 
-* `sessionID` is a valid web session ID.
-* `webCookie` is an array of cookies.
-* `APIKey` is a Web API key for the account you use to trade. API key of another account won't work.
+* `sessionID` é uma web session ID valida.
+* `webCookie` é uma ordem de cookies.
+* `APIKey` é uma Web API key para a conta que vc usa para trocar. API key de outra conta nao funcionará.
 * `timeout` (optional) is a number of milliseconds to wait for Steam servers to respond. Default is `30000`. More information about timeouts can be found in [request docs](https://github.com/request/request#timeouts).
 
 `sessionID` and `webCookie` can be acquired using [node-steam](https://github.com/seishun/node-steam) with the [node-steam-weblogon plugin](https://github.com/Alex7Kom/node-steam-weblogon). `APIKey` can be obtained using [node-steam-web-api-key](https://github.com/Alex7Kom/node-steam-web-api-key).
