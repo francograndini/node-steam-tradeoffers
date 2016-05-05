@@ -137,29 +137,29 @@ O segundo argumento para `callback` sera um objeto que retorna Steam Web API. A 
 ## acceptOffer(options[, callback])
 ## cancelOffer(options[, callback])
 
-`declineOffer` or `acceptOffer` that was sent to you. `cancelOffer` that you sent.
+`declineOffer` ou `acceptOffer` que foi enviada pra vc. `cancelOffer` que vc enviou.
 
-Options:
+Opções:
 
-* `tradeOfferId` is a trade offer Id
+* `tradeOfferId` é uma trade offer Id
 
-The second argument to `callback` will be an object with response from Steam, but don't expect anything meaningful in it.
+O segundo argumento para `callback` sera um objeto com resposta da Steam, mas nao aguarde nada significativo nisso.
 
 ## getOfferUrl(callback)
 
-The second argument to `callback` will be the trade offer URL.
+O segundo argumento para `callback` sera a trade offer URL.
 
 ## getOfferToken(callback)
 
-The second argument to `callback` will be the offer token of the bot, extracted from its trade offer URL.
+O segundo argumento para `callback` sera o token de oferta do bot, extraido da sua trade offer URL.
 
 ## getItems(options, callback)
 
-Options:
+Opções:
 
-* `tradeId` is the ID of the completed trade you want to get items for, available as a `tradeid` property on offers from `getOffers` or `getOffer`
+* `tradeId` é a ID da troca completa que vc deseja pegar os itens, disponivel como uma propriedade `tradeid` em ofertas de `getOffers` ou `getOffer`
 
-The second argument to `callback` will be an array of items acquired in a completed trade.
+O segundo argumento para `callback` sera uma ordem de itens adquiridos numa troca completa.
 
 ## getHoldDuration(options, callback)
 
