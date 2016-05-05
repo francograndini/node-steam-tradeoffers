@@ -68,48 +68,48 @@ Opçoes:
 * `sessionID` é uma web session ID valida.
 * `webCookie` é uma ordem de cookies.
 * `APIKey` é uma Web API key para a conta que vc usa para trocar. API key de outra conta nao funcionará.
-* `timeout` (optional) is a number of milliseconds to wait for Steam servers to respond. Default is `30000`. More information about timeouts can be found in [request docs](https://github.com/request/request#timeouts).
+* `timeout` (optional) é um numero de milisegundos para aguardar os servers Steam responderem. Padrão é `30000`. Mais informações sobre timeouts podem ser encontradas em [request docs](https://github.com/request/request#timeouts).
 
-`sessionID` and `webCookie` can be acquired using [node-steam](https://github.com/seishun/node-steam) with the [node-steam-weblogon plugin](https://github.com/Alex7Kom/node-steam-weblogon). `APIKey` can be obtained using [node-steam-web-api-key](https://github.com/Alex7Kom/node-steam-web-api-key).
+`sessionID` e `webCookie` podem ser adquiridas usando [node-steam](https://github.com/seishun/node-steam) com o     [node-steam-weblogon plugin](https://github.com/Alex7Kom/node-steam-weblogon). `APIKey` pode ser obtida usando o [node-steam-web-api-key](https://github.com/Alex7Kom/node-steam-web-api-key).
 
 ## loadMyInventory(options, callback)
 
-Loads your inventory for the given app and context. For example, use 440 and 2 for TF2 and 570 and 2 for Dota 2. If success the second argument to `callback` will be an array of item objects and the third argument will contain raw inventory objects, not merged with descriptions but still concatenated from multiple inventory pages.
+Carrega seu inventário para o app dado e contexto. Por ex, use 440 e 2 para TF2(Team Fortress2) e 570 e 2 para Dota2. Se obtiver sucesso o segundo argumento para `callback` será uma ordem de objetos de item e o terceiro argumento vai conter objetos de inventário, nao misturado com descrições mas ainda relacionado a multiplas paginas de inventario.
 
-Options:
+Opçoes:
 
-* `appId` is the Steam AppID
-* `contextId` is the inventory context Id
-* `language` (optional) is the language for item descriptions
-* `tradableOnly` (optional) is a boolean flag that defaults to `true` to return tradable items only
+* `appId` é a Steam AppID
+* `contextId` é o inventory context Id
+* `language` (optional) linguagem da descrição dos itens
+* `tradableOnly` (optional) é um booleano que vai marcar como `true` para retonar apenas itens trocáveis
 
 ## loadPartnerInventory(options, callback)
 
-Loads your partner inventory for the given app and context.
+Carrega o inventario do seu parceiro de troca para o app dado e contexto.
 
-Options:
+Opções:
 
-* `partnerSteamId` is the SteamID of the trade partner.  You need specify only `partnerAccountId` or `partnerSteamId`.
-* `partnerAccountId` is the Steam Account ID of the trade partner. You need specify only `partnerAccountId` or `partnerSteamId`.
-* `appId` is the Steam AppID
-* `contextId` is the inventory context Id
-* `tradeOfferId` (optional) is needed to load private inventory of the trade partner for received trade offer
-* `language` (optional) is the language for item descriptions
+* `partnerSteamId` é a SteamID do parceiro de troca.  Vc precisa especificar apenas `partnerAccountId` ou `partnerSteamId`.
+* `partnerAccountId` é a Steam Account ID do parceiro de troca. Vc precisa especificar apenas`partnerAccountId` ou `partnerSteamId`.
+* `appId` é Steam AppID
+* `contextId` é o inventory context Id
+* `tradeOfferId` (optional) is needed to load private inventory of the trade partner for received trade offer (IGNORAR E PERGUNTAR)
+* `language` (optional) é a linguagem da descrição dos itens
 
 ## makeOffer(options[, callback])
 
-Makes a trade offer to the partner.
+Faz uma oferta de troca ao parceiro.
 
-Options:
+Opções:
 
-* `partnerAccountId` or `partnerSteamId`, you need only one of those.
-* `accessToken` (optional) is a token from the public Trade URL of the partner.
-* `itemsFromMe` are the items you will lose in the trade.
-* `itemsFromThem` are the items you will receive in the trade.
-* `counteredTradeOffer` (optional) is the ID to a trade offer you are countering.
-* `message` (optional) is a message to include in the offer.
+* `partnerAccountId` ou `partnerSteamId`, vc só precisa usar 1 desses.
+* `accessToken` (optional) é um token da Trade URL publica do parceiro.
+* `itemsFromMe` são os itens q vc vai perder na troca.
+* `itemsFromThem` são os itens q vc vai receber na troca.
+* `counteredTradeOffer` (optional) é a ID de uma oferta de troca que vc está contrariando.
+* `message` (optional) é uma mensagem inclusa na oferta.
 
-`itemsFromMe` and `itemsFromThem` both are arrays of item objects that look like this:
+`itemsFromMe` e `itemsFromThem` ambos sao uma ordem de item objects que vao parecer com isso:
 
 ```json
 {
@@ -120,18 +120,18 @@ Options:
 }
 ```
 
-If success the second param to `callback` will be an object with `tradeofferid` of the newly created trade offer.
+Se obtiver sucesso o segundo parametro para `callback` sera um objeto com `tradeofferid` da nova oferta de troca criada.
 
 ## getOffers(options, callback)
 ## getOffer(options, callback)
 
-The first method loads a list of trade offers, and the second loads just a single offer.
+O primeiro metodo carrega uma lista de of. de trocas, a segunda apenas carrega uma unica of. de troca.
 
-Options:
+Opções:
 
-* See [Steam Web API/IEconService](https://developer.valvesoftware.com/wiki/Steam_Web_API/IEconService).
+* Veja [Steam Web API/IEconService](https://developer.valvesoftware.com/wiki/Steam_Web_API/IEconService).
 
- The second argument to `callback` will be an object that Steam Web API returns. The only thing to note is that the wrapper adds a property `steamid_other` with the SteamID of the trade partner to each `CEcon_TradeOffer` object in received trades.
+O segundo argumento para `callback` sera um objeto que retorna Steam Web API. A unica coisa para notar é que o compilado adiciona a propriedade `steamid_other` com a SteamID do parceiro de troca para cada objeto `Cecon_TradeOffer` em trocas recebidas.
 
 ## declineOffer(options[, callback])
 ## acceptOffer(options[, callback])
