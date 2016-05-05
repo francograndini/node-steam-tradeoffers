@@ -163,14 +163,14 @@ O segundo argumento para `callback` sera uma ordem de itens adquiridos numa troc
 
 ## getHoldDuration(options, callback)
 
-Get escrow hold duration for yourself and your trade partner before trade.
+Obtenha uma duração de retenção para vc mesmo e seu parceiro de troca antes da troca.
 
-Options:
+Opçoes:
 
-* `partnerAccountId` or `partnerSteamId`, you need only one of those.
-* `accessToken` is a token from the public Trade URL of the partner (required if they are not in your friend list).
+* `partnerAccountId` ou `partnerSteamId`, vc só precisa de 1 deles.
+* `accessToken` é um token da Trade URL publica do parceiro de troca (requerida se ele nao estiver na sua lista de amigos).
 
-The second argument to `callback` will be an object like:
+O segundo argumento para `callback` sera um objeto dessa maneira:
 
 ```json
 {
@@ -181,15 +181,16 @@ The second argument to `callback` will be an object like:
 
 ## getTradeHoldDuration(options, callback)
 
-Get escrow hold duration for the existing active trade offer.
 
-Options:
+Obtenha uma duração de retenção para a of. de troca ativa existente.
 
-* `tradeOfferId` is a trade offer Id
+Opções:
 
-The output is the same as with `getHoldDuration`.
+* `tradeOfferId` é uma trade offer Id
 
-# License
+A saída é a mesma de `getHoldDuration`.
+
+# Licensa (Bla bla bla)
 
 The MIT License (MIT)
 
